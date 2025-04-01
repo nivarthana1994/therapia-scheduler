@@ -58,11 +58,11 @@ View availability: http://localhost:5001/client/view_availability/1
 File Structure
 
 .
-├── app.py                 # Main application
-├── scheduler.db           # SQLite database (auto-created)
-├── requirements.txt       # Python dependencies
-├── .env                   # Secret key configuration
-└── templates/             # HTML templates
+├── app.py                 
+├── scheduler.db           
+├── requirements.txt       
+├── .env                  
+└── templates/             
     ├── index.html
     ├── set_availability.html
     ├── therapist_dashboard.html
