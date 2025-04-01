@@ -28,8 +28,6 @@ Set up environment
 # Install dependencies
 pip install -r requirements.txt
 
-# Generate secret key (run once)
-python -c "import secrets; print(f'SECRET_KEY={secrets.token_hex(32)}')" > .env
 
 # Initialize the database
 
