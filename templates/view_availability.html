@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Slots</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { color: #2c3e50; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background: #f5f5f5; }
+        form { display: flex; gap: 10px; align-items: center; }
+        input { padding: 8px; }
+        button { padding: 8px 15px; background: #3498db; color: white; border: none; cursor: pointer; }
+        button:hover { background: #2980b9; }
+    </style>
+</head>
+<body>
+    <h1>Available Time Slots</h1>
+    <p>Showing availability for {{ selected_date }}</p>
+    
+    {% if availability %}
+    <table>
+        <tr>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Book Appointment</th>
+        </tr>
+        {% for slot in availability %}
+        <tr>
+            <td>{{ slot[4] }}</td>
+            <td>{{ slot[5] }}</td>
+            <td>
+                <form action="/client/book_appointment" method="POST">
+                    <input type="hidden" name="therapist_id" value="{{ therapist_id }}">
+                    <input type="hidden" name="start_time" value="{{ slot[4] }}">
+                    <input type="text" name="client_name" placeholder="Your Name" required>
+                    <input type="email" name="client_email" placeholder="Your Email" required>
+                    <button type="submit">Book</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No available time slots for this date.</p>
+    {% endif %}
+</body>
+</html>

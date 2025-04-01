@@ -1,0 +1,6 @@
+# .gitignore content for Python/SQLite
+__pycache__/
+*.pyc
+*.db
+.env
+venv/
